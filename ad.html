@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phone ad — built in VS Code</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+
+    <!-- ================= VS CODE WINDOW ================= -->
+    <section class="vscode">
+      <div class="titlebar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="title">phone-ad — Visual Studio Code</span>
+        <a class="back-link" href="index.html">← All phones</a>
+      </div>
+
+      <div class="vs-body">
+        <nav class="activity">
+          <span class="on">▤</span><span>⌕</span><span>⑂</span><span>▷</span><span>⊞</span>
+        </nav>
+
+        <aside class="explorer">
+          <div class="ex-head">EXPLORER</div>
+          <div class="ex-folder">⌄ TECNO-CAMON-30S</div>
+          <ul id="files">
+            <li data-f="boot.js"><b class="ic js">JS</b>boot.js</li>
+            <li data-f="unlock.css"><b class="ic css">#</b>unlock.css</li>
+            <li data-f="chat.html"><b class="ic html">&lt;&gt;</b>chat.html</li>
+            <li data-f="notes.js"><b class="ic js">JS</b>notes.js</li>
+            <li data-f="games.js"><b class="ic js">JS</b>games.js</li>
+            <li data-f="camera.js"><b class="ic js">JS</b>camera.js</li>
+            <li data-f="power.js"><b class="ic js">JS</b>power.js</li>
+          </ul>
+        </aside>
+
+        <div class="editor">
+          <div class="tabs" id="tabs"></div>
+          <div class="crumbs" id="crumbs">tecno-camon-30s</div>
+          <pre class="code" id="code"></pre>
+        </div>
+      </div>
+
+      <div class="statusbar">
+        <span>⑂ main</span><span>⊗ 0  ⚠ 0</span>
+        <span class="grow"></span>
+        <span id="live">● Live Preview</span>
+        <span id="lang">JavaScript</span>
+        <span>UTF-8</span>
+      </div>
+    </section>
+
+    <!-- ================= PHONE STAGE ================= -->
+    <section class="stage" id="stage">
+      <div class="toast" id="toast">⚡ Live Preview updated</div>
+
+      <div class="phone" id="phone">
+        <i class="side vol"></i>
+        <i class="side power" id="btn-power"></i>
+
+        <div class="frame"><div class="bezel">
+          <div class="screen-wrap" id="screen">
+
+            <div class="punch"></div>
+
+            <!-- BOOT -->
+            <section class="screen boot" id="boot">
+              <div class="boot-logo">TECNO</div>
+              <div class="boot-sub">CAMON 30S Pro</div>
+              <div class="boot-dots"><i></i><i></i><i></i></div>
+            </section>
+
+            <!-- HOME -->
+            <section class="screen home wall" id="home">
+              <div class="status"></div>
+              <div class="home-widget">
+                <div class="hw-time" id="home-time"></div>
+                <div class="hw-date" id="home-date"></div>
+              </div>
+              <div class="grid">
+                <div class="app" id="app-whatsapp">
+                  <div class="ico" style="background:#25d366">
+                    <svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4a12 12 0 0 0-10.3 18L4 28l6.2-1.6A12 12 0 1 0 16 4z"/><path d="M12 11c0 5 4 9 9 9l1.6-2.4-3-1.6-1.2 1.2c-1.6-.6-2.8-1.8-3.4-3.4l1.2-1.2L15.600 9z" fill="#fff" stroke="none"/></svg>
+                  </div>
+                  <span>WhatsApp</span>
+                </div>
+                <div class="app" id="app-notes"><div class="ico" style="background:#ffd54a">📝</div><span>Notes</span></div>
+                <div class="app" id="app-games"><div class="ico" style="background:#7c4dff">🎮</div><span>Games</span></div>
+                <div class="app"><div class="ico" style="background:#7e57c2">🖼️</div><span>Gallery</span></div>
+                <div class="app"><div class="ico" style="background:#ef5350">🎵</div><span>Music</span></div>
+                <div class="app"><div class="ico" style="background:#26a69a">🗺️</div><span>Maps</span></div>
+                <div class="app"><div class="ico" style="background:#42a5f5">⛅</div><span>Weather</span></div>
+                <div class="app"><div class="ico" style="background:#455a64">⏰</div><span>Clock</span></div>
+                <div class="app"><div class="ico" style="background:#e53935">▶️</div><span>YouTube</span></div>
+                <div class="app"><div class="ico" style="background:#546e7a">🧮</div><span>Calculator</span></div>
+                <div class="app"><div class="ico" style="background:#ffa726">📁</div><span>Files</span></div>
+                <div class="app"><div class="ico" style="background:#78909c">⚙️</div><span>Settings</span></div>
+              </div>
+              <div class="dock">
+                <div class="ico" style="background:#43a047">📞</div>
+                <div class="ico" style="background:#1e88e5">💬</div>
+                <div class="ico" style="background:#fafafa">🌐</div>
+                <div class="ico" id="app-camera" style="background:#37474f">📷</div>
+              </div>
+              <div class="nav"></div>
+            </section>
+
+            <!-- WHATSAPP -->
+            <section class="screen app-screen wa" id="whatsapp">
+              <div class="wa-head">
+                <div class="status"></div>
+                <div class="wa-bar">
+                  <span class="back">‹</span>
+                  <div class="avatar">A</div>
+                  <div class="who"><b>Ada</b><small id="wa-status">online</small></div>
+                  <span class="wa-icons">📹 📞 ⋮</span>
+                </div>
+              </div>
+              <div class="wa-body" id="wa-body"></div>
+              <div class="wa-input">
+                <div class="wa-field empty" id="wa-field">
+                  <span class="ph">Message</span><span id="wa-text"></span><span class="caret"></span>
+                </div>
+                <div class="wa-send" id="wa-send">🎤</div>
+              </div>
+              <div class="nav"></div>
+            </section>
+
+            <!-- NOTES -->
+            <section class="screen app-screen notes" id="notes">
+              <div class="status"></div>
+              <div class="nt-bar"><span class="back">‹</span><b>Notes</b><span class="nt-ic">⋮</span></div>
+              <div class="nt-title">Hello!</div>
+              <div class="nt-date" id="nt-date"></div>
+              <div class="nt-text"><span id="nt-text"></span><span class="caret y"></span></div>
+              <div class="nt-saved" id="nt-saved">✓ Saved</div>
+              <div class="nav"></div>
+            </section>
+
+            <!-- GAMES HUB -->
+            <section class="screen app-screen games" id="games">
+              <div class="status"></div>
+              <div class="gm-head"><b>Game Space</b><small>Play · Win · Repeat</small></div>
+              <div class="gm-grid">
+                <div class="tile" id="tile-sky" style="background:linear-gradient(135deg,#38bdf8,#6366f1)">🐤<span>Sky Hop</span></div>
+                <div class="tile" id="tile-2048" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">🔢<span>2048</span></div>
+                <div class="tile" style="background:linear-gradient(135deg,#10b981,#065f46)">🏎️<span>Turbo Rush</span></div>
+                <div class="tile" style="background:linear-gradient(135deg,#64748b,#1e293b)">♟️<span>Chess</span></div>
+                <div class="tile" style="background:linear-gradient(135deg,#ec4899,#8b5cf6)">🧩<span>Puzzle Pop</span></div>
+                <div class="tile" style="background:linear-gradient(135deg,#06b6d4,#3b82f6)">🪂<span>Drop Zone</span></div>
+              </div>
+              <div class="nav"></div>
+            </section>
+
+            <!-- GAME PLAY -->
+            <section class="screen app-screen play" id="play">
+              <div class="status"></div>
+              <div class="pl-bar"><span class="back">‹</span><b id="pl-title"></b><i id="pl-score">0</i></div>
+              <canvas id="sky" width="284" height="560"></canvas>
+              <div id="b2048"></div>
+              <div class="nav"></div>
+            </section>
+
+            <!-- CAMERA -->
+            <section class="screen app-screen cam" id="camera">
+              <div class="status"></div>
+              <div class="cam-top"><span id="cam-badge"></span><span>⚡ HDR</span></div>
+              <div class="cam-view"><div class="cam-scene" id="cam-scene"><div class="sun"></div><div class="hill h1"></div><div class="hill h2"></div></div><div class="flash" id="cam-flash"></div></div>
+              <div class="cam-zoom"><b>.5</b><b class="on" id="zoom-lbl">1x</b><b>2</b></div>
+              <div class="cam-bar"><div class="thumb" id="cam-thumb"></div><div class="shutter" id="shutter"></div><div class="flip">🔄</div></div>
+              <div class="nav"></div>
+            </section>
+
+            <!-- LOCK -->
+            <section class="screen lock wall" id="lock">
+              <div class="status"></div>
+              <div class="lock-top">
+                <div class="lock-date" id="lock-date"></div>
+                <div class="lock-time" id="lock-time"></div>
+              </div>
+              <div class="faceid" id="faceid"><span>☺</span></div>
+              <div class="fp" id="fp">
+                <svg viewBox="0 0 48 48" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M24 8c-8 0-14 6-14 14v6"/>
+                  <path d="M24 14c-5 0-9 4-9 9v7c0 3 1 6 2 8"/>
+                  <path d="M24 20c-2 0-4 2-4 4v8c0 3 1 6 3 8"/>
+                  <path d="M24 8c8 0 14 6 14 14v8c0 3-1 5-2 8"/>
+                  <path d="M33 24v8c0 3-1 6-3 9"/>
+                  <path d="M28 24c0-2-2-4-4-4"/>
+                </svg>
+              </div>
+              <div class="lock-notif"><i>💬</i><div id="lock-n"><b>WhatsApp · Ada</b><br>Did you see the new phone? 🔥</div></div>
+              <div class="lock-btn l">🔦</div><div class="lock-btn r">📷</div>
+              <p class="lock-hint">Touch the sensor to unlock</p>
+              <div class="nav"></div>
+            </section>
+
+            <!-- POWER MENU -->
+            <section class="power-menu" id="power">
+              <div class="pm-title">TECNO</div>
+              <div class="opt" id="opt-off"><i class="oi red">⏻</i>Power off</div>
+              <div class="opt" id="opt-restart"><i class="oi blue">↻</i>Restart</div>
+            </section>
+
+            <div class="touch" id="touch"></div>
+            <div class="off on" id="off"></div>
+          </div>
+        </div></div>
+      </div>
+    </section>
+
+    <div class="caption" id="caption"></div>
+    <button id="mute" title="Sound on/off">🔊</button>
+    <div id="start"><div><h1 id="st-name"></h1><p>Click to play with sound</p><button>▶ Play ad</button></div></div>
+
+    <!-- END CARD -->
+    <div class="endcard" id="endcard">
+      <div class="logo">&lt;/&gt;</div>
+      <h1>Build anything.</h1>
+      <h2>with Visual Studio Code</h2>
+      <p>made by tinyd</p>
+    </div>
+  </div>
+
+  <script src="phones.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
